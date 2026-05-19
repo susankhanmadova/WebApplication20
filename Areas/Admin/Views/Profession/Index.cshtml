@@ -1,0 +1,54 @@
+﻿@using WebApplication20.Models
+@model List<Profession>
+<div>
+    <a asp-controller="Profession" asp-action="Add" class="btn btn-primary">Add</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">IsDeleted</th>
+                <th scope="col">Image</th>
+                <th scope="col">Actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Profession profession in Model)
+            {
+                <tr>
+                    <th scope="row">1</th>
+                    <td>@profession.Name</td>
+                    <td>
+                        @if (profession.IsDeleted == false)
+                        {
+                            <span class="text-success">Active</span>
+                        }
+                        else
+                        {
+                            <span class="text-danger">InActive</span>
+                        }
+                    </td>
+                    <td>
+                        @if (profession.IsDeleted == false)
+                        {
+                            <form asp-controller="Profession" asp-action="Delete" asp-route-id="@profession.Id" method="post">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <form asp-controller="Profession" asp-action="Restore" asp-route-id="@profession.Id" method="post">
+                                <button type="submit" class="btn btn-success">Restore</button>
+                            </form>
+                        }
+                    </td>
+                    <td>
+                        <a asp-controller="Profession" asp-action="Update" asp-route-id="@profession.Id" class="btn btn-warning">Update</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

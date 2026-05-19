@@ -1,0 +1,23 @@
+﻿@using WebApplication20.Areas.ViewModels.Members
+@using WebApplication20.Models
+@model CreateMemberVM
+
+<form asp-controller="Member" asp-action="Add" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="Name" class="form-label">Name</label>
+        <input asp-for="Name" type="text" class="form-control" id="name">
+        <span asp-validation-for="@Model.Name">Name is required</span>
+    </div>
+    <div class="mb-3">
+        <label for="ImageUrl" class="form-label">Image</label>
+        <input asp-for="ImageUrl" type="text" class="form-control" id="image">
+    </div>
+    <select asp-for="ProfessionId" class="form-select" aria-label="Default select example">
+        <option selected>select menu</option>
+        @foreach (Profession profession in ViewBag.Professions)
+            {
+                <option value="@profession.Id">@profession.Name</option>
+            }
+        </select>
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
