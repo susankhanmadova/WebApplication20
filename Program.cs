@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebApplication20.DAL;
+using WebApplication20.Models;
 
 namespace WebApplication20
 {
@@ -15,6 +17,17 @@ namespace WebApplication20
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
+            builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
+            {
+                opt.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.";
+                opt.User.RequireUniqueEmail = true;
+
+                opt.Password.RequireDigit = true;
+                opt.Password.RequireLowercase = true;
+                opt.Password.RequireUppercase = true;
+                opt.Password.RequireNonAlphanumeric = true;
+                opt.Password.RequiredLength = 8;
+            }).AddEntityFrameworkStores<AppDbContext>();
             var app = builder.Build();
             app.MapControllerRoute(
     name: "areas",

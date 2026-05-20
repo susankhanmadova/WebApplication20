@@ -1929,3 +1929,4 @@ C:\Users\Suzi\source\repos\WebApplication20\WebApplication20\obj\Debug\net10.0\c
 C:\Users\Suzi\source\repos\WebApplication20\WebApplication20\obj\Debug\net10.0\compressed\q6l7yf39ai-{0}-rszun4iext-rszun4iext.gz
 C:\Users\Suzi\source\repos\WebApplication20\WebApplication20\obj\Debug\net10.0\compressed\2xvlr1cjob-{0}-l5o0ocrnlv-l5o0ocrnlv.gz
 C:\Users\Suzi\source\repos\WebApplication20\WebApplication20\obj\Debug\net10.0\WebApplication20.sourcelink.json
+C:\Users\Suzi\source\repos\WebApplication20\WebApplication20\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
